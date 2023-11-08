@@ -9,7 +9,11 @@ export const resolvers = {
     },
 
     Job: {
-        date: (job) => moment(job.createdAt).format('DD-MM-YYYY'),
+        date: (job) => getFormattedDate(job.createdAt),
         company: (job) => getCompany(job.companyId)      
     }
 };
+
+export function getFormattedDate(date){
+    return moment(date).format('DD-MM-YYYY');
+}
